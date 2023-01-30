@@ -2,14 +2,6 @@ import React from "react";
 import emojipedia from "../emojipedia";
 import Entry from "./Entry";
 
-function createEntry(item) {
-  return<Entry
-    emoji={item.emoji}
-    name={item.name}
-    meaning={item.meaning}
-  />
-}
-
 function App() {
   return (
     <div>
@@ -17,7 +9,9 @@ function App() {
         <span>emojipedia</span>
       </h1>
       <dl className="dictionary">
-        {emojipedia.map(createEntry)}
+        {emojipedia.map(function (item) {
+          return <Entry emoji={item.emoji} name={item.name} meaning={item.meaning} />
+        })}
       </dl>
     </div>
   );
